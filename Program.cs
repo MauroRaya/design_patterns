@@ -8,7 +8,7 @@
             app.GET();
             app.POST();
 
-            //2, Builders
+            //2. Builders
             var request = new HttpRequest.Builder()
                 .SetURL("https://api.example.com/data")
                 .SetMethod("POST")
@@ -17,6 +17,13 @@
                 .Build();
 
             Console.WriteLine(request.URL);
+
+            //3. Singletons
+            Database database = new Database();
+            var db1 = database.GetInstance();
+            var db2 = database.GetInstance();
+
+            Console.WriteLine(db1 == db2);
         }
     }
 }
