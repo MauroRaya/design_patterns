@@ -23,7 +23,20 @@
             var db1 = database.GetInstance();
             var db2 = database.GetInstance();
 
-            Console.WriteLine(db1 == db2);
+            Console.WriteLine("Instancias db são iguais?: " + (db1 == db2));
+
+            //4. Prototypes
+            Square square    = new Square(10, 20, 5);
+            Square newSquare = (Square)square.Clone();
+
+            Console.WriteLine($"Square original: {square.X} - {square.Y}");
+            Console.WriteLine($"Square clonado:  {newSquare.X} - {newSquare.Y}");
+
+            newSquare.X = 100;
+            newSquare.Y = 200;
+
+            Console.WriteLine($"Square clonado após alteração: {newSquare.X} - {newSquare.Y}");
+            Console.WriteLine($"Square original: {square.X} - {square.Y}");
         }
     }
 }
